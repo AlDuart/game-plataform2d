@@ -1,0 +1,67 @@
+[gd_resource type="TileSet" format=3 uid="uid://dtd3w7f5dclju"]
+
+[ext_resource type="Texture2D" uid="uid://ccqnmgngup223" path="res://sprites/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="1_q57lu"]
+[ext_resource type="Texture2D" uid="uid://c06rx0ko2qi7g" path="res://sprites/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="2_t4xes"]
+[ext_resource type="Texture2D" uid="uid://cpih4sk4uoovc" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/House (112 x 96).png" id="3_4mxei"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_p1ry8"]
+tile_data = PackedInt32Array(0, 2, 0, 196608, 327681, 3, 196609, 458753, 3, 196610, 458753, 3, 196611, 524289, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_xlg7c"]
+tile_data = PackedInt32Array(0, 589824, 1, 2, 589824, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ll5lq"]
+texture = ExtResource("1_q57lu")
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+18:5/0 = 0
+1:1/size_in_atlas = Vector2i(3, 3)
+1:1/0 = 0
+5:1/size_in_atlas = Vector2i(3, 3)
+5:1/0 = 0
+9:1/size_in_atlas = Vector2i(3, 3)
+9:1/0 = 0
+9:1/0/z_index = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17rxn"]
+texture = ExtResource("2_t4xes")
+1:1/size_in_atlas = Vector2i(3, 3)
+1:1/0 = 0
+1:1/0/z_index = 2
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq8tf"]
+texture = ExtResource("3_4mxei")
+0:0/size_in_atlas = Vector2i(7, 6)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+8:0/size_in_atlas = Vector2i(7, 6)
+8:0/0 = 0
+8:0/0/texture_origin = Vector2i(0, -8)
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_ll5lq")
+sources/1 = SubResource("TileSetAtlasSource_17rxn")
+sources/2 = SubResource("TileSetAtlasSource_yq8tf")
+pattern_0 = SubResource("TileMapPattern_p1ry8")
+pattern_1 = SubResource("TileMapPattern_xlg7c")
