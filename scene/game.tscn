@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://58f5hor3f7ft" path="res://entities/player.tscn" id="1_5kiuu"]
 [ext_resource type="TileSet" uid="uid://dh54ks2kytjvw" path="res://tiles/terrain.tres" id="2_33cqm"]
-[ext_resource type="TileSet" uid="uid://dtd3w7f5dclju" path="res://decoration/decorationt.tres" id="3_xwcet"]
+[ext_resource type="TileSet" uid="uid://dtd3w7f5dclju" path="res://tiles/decorationt.tres" id="3_xwcet"]
 
 [node name="Game" type="Node2D" unique_id=1162548331]
 
