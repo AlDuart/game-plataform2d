@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://1nv2fjq2s5ne" path="res://sprites/2 - Lil Wiz/Falling_(32 x 32).png" id="3_qsoyl"]
 [ext_resource type="Texture2D" uid="uid://c2hknhq8nfpet" path="res://sprites/2 - Lil Wiz/Jumping_(32 x 32).png" id="3_rfe5m"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0kkn"]
+radius = 5.0
+height = 22.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0i614"]
 atlas = ExtResource("3_qsoyl")
 region = Rect2(0, 0, 32, 32)
@@ -161,34 +165,33 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0kkn"]
-radius = 5.0
-height = 22.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsoyl"]
-size = Vector2(20, 25.5)
+size = Vector2(20, 22.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=1512398607 groups=["Player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_merdl")
+MAXSPEED = null
+acceleration = null
+deceleration = null
+slide_deceleration = null
+max_jump_count = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=629233690]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_b0kkn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=570179281]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_i623q")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=629233690]
-z_index = 1
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_b0kkn")
+animation = &"hurt"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1927577882]
 collision_layer = 2
-collision_mask = 20
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=449904432]
-z_index = 10
 position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_qsoyl")
 debug_color = Color(0.50829643, 0.5736446, 0.22534367, 0.41960785)

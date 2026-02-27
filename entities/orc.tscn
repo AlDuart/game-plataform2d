@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bonosd7xsdj14"]
+
+[ext_resource type="Script" uid="uid://bfetjnjy5m76a" path="res://scripts/orc.gd" id="1_vb5lg"]
+[ext_resource type="Texture2D" uid="uid://dj2b6flfo0n20" path="res://sprites/8 - Orc/Hurt_(64 x 32).png" id="2_x2sww"]
+[ext_resource type="Texture2D" uid="uid://dlj37ossn5m36" path="res://sprites/8 - Orc/Walking_(64 x 32).png" id="3_x2sww"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1tai"]
+atlas = ExtResource("2_x2sww")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iqia"]
+atlas = ExtResource("3_x2sww")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ubxt"]
+atlas = ExtResource("3_x2sww")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1y34"]
+atlas = ExtResource("3_x2sww")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mmjs"]
+atlas = ExtResource("3_x2sww")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wpaq"]
+atlas = ExtResource("3_x2sww")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afntt"]
+atlas = ExtResource("3_x2sww")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xejwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1tai")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iqia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ubxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1y34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mmjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wpaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afntt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gl0r6"]
+radius = 7.0
+height = 22.0
+
+[node name="orc" type="CharacterBody2D" unique_id=606541412]
+collision_layer = 4
+script = ExtResource("1_vb5lg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=461238896]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_xejwb")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=734026381]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_gl0r6")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=658546541]
+collision_layer = 4
+collision_mask = 2
+
+[node name="collisionPolign2d" type="CollisionPolygon2D" parent="hitbox" unique_id=960234125]
+position = Vector2(0, -0.14553452)
+scale = Vector2(1, 0.99107146)
+polygon = PackedVector2Array(0, 0, 10, 0, 10, -12.970271, 10, 10, 0, 10, -10, 10, -16, 10.236936, -20, 8.218918, -16, 6.2009, -10, 6.2009, -10, -12.970271, 0, -12.970271, 10, -12.970271, 10, 0)
+
+[node name="WallDetector" type="RayCast2D" parent="." unique_id=1664010411]
+position = Vector2(-1, 9)
+target_position = Vector2(-14, 0)
+
+[node name="GroundDetector" type="RayCast2D" parent="." unique_id=840834067]
+position = Vector2(-12, 0)
+target_position = Vector2(0, 23)
