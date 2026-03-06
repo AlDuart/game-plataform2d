@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ckmt8rhon64k7"]
+
+[ext_resource type="Texture2D" uid="uid://dedwmnj8ylrqk" path="res://sprites/Seasonal Tilesets/4 - Winter World/Background parts/_Complete_static_BG_(288 x 208).png" id="1_1hn3b"]
+[ext_resource type="Script" uid="uid://deqgo7m7b0qq6" path="res://scripts/title_screen.gd" id="1_vio6n"]
+[ext_resource type="Texture2D" uid="uid://c2hknhq8nfpet" path="res://sprites/2 - Lil Wiz/Jumping_(32 x 32).png" id="2_vio6n"]
+
+[sub_resource type="Theme" id="Theme_o0rbc"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+
+[node name="TitleScreen" type="Control" unique_id=2068249534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vio6n")
+
+[node name="bg" type="TextureRect" parent="." unique_id=759508366]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 208.0
+texture = ExtResource("1_1hn3b")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1192888960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=172643855]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1992196929]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1164442664]
+layout_mode = 2
+
+[node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1953944196]
+layout_mode = 2
+theme = SubResource("Theme_o0rbc")
+text = "start"
+
+[node name="exit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1843926363]
+layout_mode = 2
+text = "exit"
+
+[node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1031152137]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Jumping(32X32)" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=148657799]
+position = Vector2(-58, 74)
+scale = Vector2(2.71875, 2.5)
+texture = ExtResource("2_vio6n")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]
